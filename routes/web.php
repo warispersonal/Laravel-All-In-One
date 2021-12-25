@@ -24,3 +24,4 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('email-send-without-template', [EmailSendingController::class, 'emailSendWithoutTemplate']);
 Route::get('email-send-with-template/{name}', [EmailSendingController::class, 'emailSendWithTemplate']);
+Route::get('email-send-with-attachment', [EmailSendingController::class, 'emailSendWithAttachment']);

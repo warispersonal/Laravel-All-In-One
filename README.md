@@ -23,8 +23,8 @@
 
 8. php artisan make:mail OrderShipped --markdown=emails.foldername.filename       
  
-9. using Sendgrid email
-    1. config/service.php 
+## using Sendgrid email
+1. config/service.php 
     'sendgrid' => [
          'api_key' => env('SENDGRID_API_KEY'),
        ],
@@ -37,3 +37,13 @@
            5. MAIL_USERNAME=wariszargarmailsending@gmail.com
            6. MAIL_PASSWORD=wppqoonhucaaatuv
            7. MAIL_ENCRYPTION=tls
+
+## Mailtarp.io
+MAIL_DRIVER=smtp
+MAIL_HOST=smtp.mailtrap.io
+MAIL_PORT=2525
+MAIL_USERNAME=0e6cc5cdb113f7
+MAIL_PASSWORD=b4e3ab13c1dfd7
+MAIL_ENCRYPTION=tls
+MAIL_FROM_ADDRESS=wariszargardev@gmail.com
+MAIL_FROM_NAME='All in One'

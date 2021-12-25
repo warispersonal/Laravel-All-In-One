@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Feature1;
 
 use App\Http\Controllers\Controller;
+use App\Mail\RegisterUser;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 
@@ -16,6 +17,13 @@ class EmailSendingController extends Controller
             $message->to('wariszargardev@gmail.com', 'Muhammad Waris Zargar');
             $message->subject('Test email from waris zargar');
         });
+
+        return "Email send successfully";
+    }
+
+    public function emailSendWithTemplate($name){
+        $mail = 'wariszargardev@gmail.com';
+        Mail::to($mail)->send(new RegisterUser($name));
 
         return "Email send successfully";
     }

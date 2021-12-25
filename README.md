@@ -21,4 +21,7 @@
     5. npm set progress=false
        npm config set registry http://registry.npmjs.org/
 
+8. php artisan make:mail OrderShipped --markdown=emails.foldername.filename       
+ 
+
 

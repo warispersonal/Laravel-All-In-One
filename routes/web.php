@@ -22,4 +22,5 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('email-send-without-template', [EmailSendingController::class, 'emailSendWithoutTemplate'])->name('home');
+Route::get('email-send-without-template', [EmailSendingController::class, 'emailSendWithoutTemplate']);
+Route::get('email-send-with-template/{name}', [EmailSendingController::class, 'emailSendWithTemplate']);

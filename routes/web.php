@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Feature1\EmailSendingController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,3 +21,5 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('email-send-without-template', [EmailSendingController::class, 'emailSendWithoutTemplate'])->name('home');

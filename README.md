@@ -23,5 +23,17 @@
 
 8. php artisan make:mail OrderShipped --markdown=emails.foldername.filename       
  
-
-
+9. using Sendgrid email
+    1. config/service.php 
+    'sendgrid' => [
+         'api_key' => env('SENDGRID_API_KEY'),
+       ],
+    2. composer require s-ichikawa/laravel-sendgrid-driver
+    3. .env   
+           1. MAIL_DRIVER=smtp or MAIL_MAILER=smtp
+           2. MAIL_FROM_ADDRESS=wariszargarmailsending@gmail.com
+           3. MAIL_HOST=smtp.gmail.com
+           4. MAIL_PORT=587
+           5. MAIL_USERNAME=wariszargarmailsending@gmail.com
+           6. MAIL_PASSWORD=wppqoonhucaaatuv
+           7. MAIL_ENCRYPTION=tls

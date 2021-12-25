@@ -12,5 +12,13 @@
     5. MAIL_USERNAME=wariszargarmailsending@gmail.com
     6. MAIL_PASSWORD=wppqoonhucaaatuv
     7. MAIL_ENCRYPTION=tls
+    
+7. For installing bootstrap and auth 
+    1. composer require laravel/ui 
+    2. php artisan ui bootstrap --auth or php artisan ui auth && php artisan ui bootstrap
+    3. Then npm install && npm run watch/build/dev
+    4. If it taking too much time then open terminal & run below common & then try npm install....
+    5. npm set progress=false
+       npm config set registry http://registry.npmjs.org/
 
 

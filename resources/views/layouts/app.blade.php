@@ -79,5 +79,32 @@
             @yield('content')
         </main>
     </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        function sendMarkRequest(id = null) {
+            return $.ajax("{{ route('markNotification') }}", {
+                method: 'POST',
+                data: {
+                    "_token": "{{ csrf_token() }}",
+                    id
+                }
+            });
+        }
+        $(function() {
+            $('.mark-as-read').click(function() {
+                let request = sendMarkRequest($(this).data('id'));
+                request.done(() => {
+                    $(this).parents('div.alert').remove();
+                });
+            });
+            $('#mark-all').click(function() {
+                let request = sendMarkRequest();
+                request.done(() => {
+                    $('div.alert').remove();
+                })
+            });
+        });
+    </script>
 </body>
 </html>

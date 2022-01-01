@@ -22,3 +22,22 @@
        npm config set registry http://registry.npmjs.org/
 
 
+
+How can we check our failed jobs, and can we retrieve those failed jobs?
+Yes, you can use the below command to list out all failed jobs.
+
+#php artisan queue:failed
+You can retrieve all your failed jobs using artisan command.
+
+#php artisan queue:retry all
+You can also delete those failed jobs from the failed jobs table using a command.
+
+#php artisan queue:flush
+How can I delete or retrieve a specific job from a failed job table?
+You can retrieve a specific failed job using the below command,
+
+#php artisan queue:retry {failedJobId}
+To delete a specific job.
+
+#php artisan queue:forget {failedJobId}
+

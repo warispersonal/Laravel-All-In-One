@@ -13,12 +13,24 @@
     <p id="message"></p>
 </div>
 <script src="{{asset('js/app.js')}}"></script>
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 <script>
     //dynamic-notification-message is channel name
     // DynamicNotificationMessage this is event name
     Echo.channel('dynamic-notification-message')
         .listen('DynamicNotificationMessage',(e)=>{
-            alert(e.message)
+            $("p").append(e.message);
+            $.ajax({
+                url: '{{route("user_list")}}',
+                type: 'POST',
+                data: {_token: "{{csrf_token()}}"},
+                dataType: 'JSON',
+                success: function (data) {
+                    $("p").empty();
+                    $("p").append(data.html);
+                }
+            });
+
         })
 </script>
 </body>

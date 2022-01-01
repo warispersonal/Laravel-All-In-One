@@ -31,3 +31,5 @@ Route::get('/receive-message', function () {
     return view('receive-message');
 });
 
+Route::post('user-list', [\App\Http\Controllers\UserController::class,'index'])->name('user_list');
+

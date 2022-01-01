@@ -32,7 +32,11 @@ const app = new Vue({
     created(){
         Echo.channel('notification')
             .listen('MessageNotification',(e)=>{
-                console.log(e.message)
+                console.log(e)
+                console.log(e.id)
+                console.log(e.name)
+                console.log(e.email)
+                console.log(e.user)
             })
     }
 });

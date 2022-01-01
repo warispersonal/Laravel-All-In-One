@@ -2,6 +2,7 @@
 
 namespace App\Events;
 
+use App\Models\User;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Broadcasting\PresenceChannel;
@@ -20,9 +21,24 @@ class MessageNotification implements ShouldBroadcast
      * @return void
      */
     public $message;
+    public $user;
     public function __construct($message)
     {
         $this->message = $message;
+        $this->user = User::find(1);
+    }
+
+    public function broadcastWith(){
+        return [
+            'id' => $this->user->id,
+            'name' => $this->user->name,
+            'email' => $this->user->email,
+            'user' => [
+                'column1' => 'Column 1',
+                'column2' => 'Column 2',
+                'column3' => 'Column 3'
+            ],
+        ];
     }
 
     /**

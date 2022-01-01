@@ -5302,7 +5302,11 @@ var app = new Vue({
   el: '#app',
   created: function created() {
     Echo.channel('notification').listen('MessageNotification', function (e) {
-      console.log(e.message);
+      console.log(e);
+      console.log(e.id);
+      console.log(e.name);
+      console.log(e.email);
+      console.log(e.user);
     });
   }
 });

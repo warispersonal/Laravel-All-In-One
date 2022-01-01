@@ -20,3 +20,14 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+Route::get('/send-broad-cast-message/{message}', function ($message) {
+    event(new \App\Events\DynamicNotificationMessage($message));
+});
+
+
+Route::get('/receive-message', function () {
+    return view('receive-message');
+});
+

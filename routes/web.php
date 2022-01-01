@@ -20,3 +20,16 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+
+Route::get('/event', function () {
+    event(new \App\Events\MessageNotification("This is first notification"));
+});
+
+
+
+Route::get('/listen', function () {
+    return view('listen');
+
+});

@@ -6,6 +6,7 @@ use App\Exports\CustomExportWithHeaders;
 use App\Exports\UsersExport;
 use App\Imports\UsersImport;
 use App\Imports\UsersImportWithValidation;
+use App\Jobs\ExportUserMailSendJob;
 use App\Models\User;
 use Maatwebsite\Excel\Facades\Excel;
 
@@ -94,5 +95,9 @@ class ImportExportController extends Controller
     public function importWithValidation(){
         Excel::import(new UsersImportWithValidation,request()->file('file'));
         return back()->with('success', 'User Imported Successfully.');
+    }
+
+    public function jobSaveAndSendFile(){
+        dispatch(new ExportUserMailSendJob());
     }
 }

@@ -29,3 +29,4 @@ Route::get('save-excel-file', [ImportExportController::class,'saveExcelFile']);
 Route::get('import-export', [ImportExportController::class,'import']);
 Route::post('import', [ImportExportController::class,'saveImport'])->name('import');
 Route::post('import-with-validation', [ImportExportController::class,'importWithValidation'])->name('import_with_validation');
+Route::get('job-save-file', [ImportExportController::class,'jobSaveAndSendFile']);

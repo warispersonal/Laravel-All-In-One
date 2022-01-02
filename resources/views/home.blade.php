@@ -7,6 +7,7 @@
             <div class="card">
                 <div class="card-header">{{ __('Dashboard') }}</div>
 
+                <img src="{{asset(Storage::url('abc.jpg'))}}">
                 <div class="card-body">
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">

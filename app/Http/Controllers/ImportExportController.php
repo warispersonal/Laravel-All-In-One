@@ -61,7 +61,7 @@ class ImportExportController extends Controller
             }
         }
         $filename = 'Sales Register 2019 Cr.xlsx';
-        Excel::store(new CustomExportWithHeaders($data), $filename);
+        Excel::store(new CustomExportWithHeaders($data), $filename, 'public');
 
         echo "File storage path " .  $file = storage_path($filename);
     }

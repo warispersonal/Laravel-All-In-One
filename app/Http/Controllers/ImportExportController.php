@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Exports\UsersExport;
 use App\Imports\UsersImport;
-use Maatwebsite\Excel\Excel;
+use App\Models\User;
+use Maatwebsite\Excel\Facades\Excel;
 
 class ImportExportController extends Controller
 {
@@ -15,7 +16,9 @@ class ImportExportController extends Controller
 
     public function export()
     {
-        return Excel::download(new UsersExport, 'users.xlsx');
+        $users = User::select('id','name','email')->get();
+
+        return Excel::download(new UsersExport($users), 'users.xlsx');
     }
 
     public function saveImport()

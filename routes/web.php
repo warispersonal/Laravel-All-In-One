@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\ImportExportController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,3 +22,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('export', [ImportExportController::class,'export'])->name('export');
+Route::get('import-export', [ImportExportController::class,'import']);
+Route::post('import', [ImportExportController::class,'saveImport'])->name('import');

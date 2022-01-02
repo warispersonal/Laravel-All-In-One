@@ -44,6 +44,28 @@ class ImportExportController extends Controller
         return Excel::download(new CustomExportWithHeaders($data), 'custom_export.xlsx');
     }
 
+    public function saveExcelFile()
+    {
+        $data = array();
+        $users = User::with('projects')->where('id','<' , 10)->get();
+        foreach ($users as $user){
+            foreach ($user->projects as $project){
+                $tempArray = [];
+                $tempArray['user_id'] = $user->id;
+                $tempArray['name'] = $user->name;
+                $tempArray['email'] = $user->email;
+                $tempArray['email'] = $user->email;
+                $tempArray['project_id'] = $project->id;
+                $tempArray['project_description'] = $project->body;
+                $data[] = $tempArray;
+            }
+        }
+        $filename = 'Sales Register 2019 Cr.xlsx';
+        Excel::store(new CustomExportWithHeaders($data), $filename);
+
+        echo "File storage path " .  $file = storage_path($filename);
+    }
+
     public function exportUsingJob()
     {
         $data = array();

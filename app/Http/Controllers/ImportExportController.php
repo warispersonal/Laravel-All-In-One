@@ -17,7 +17,9 @@ class ImportExportController extends Controller
 
     public function export()
     {
-        $users = User::select('id','name','email')->get();
+//        $users = User::select('id','name','email')->get();
+        $users = User::select('id','name','email')->where('id','<',100)->get();
+//        $users = User::where('id','<',100)->get();
 
         return Excel::download(new UsersExport($users), 'users.xlsx');
     }
@@ -25,7 +27,6 @@ class ImportExportController extends Controller
     public function saveImport()
     {
         Excel::import(new UsersImport,request()->file('file'));
-
         return back();
     }
 

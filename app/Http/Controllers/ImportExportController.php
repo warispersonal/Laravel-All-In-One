@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Exports\UsersExport;
 use App\Imports\UsersImport;
+use App\Imports\UsersImportWithValidation;
 use App\Models\User;
 use Maatwebsite\Excel\Facades\Excel;
 
@@ -26,5 +27,10 @@ class ImportExportController extends Controller
         Excel::import(new UsersImport,request()->file('file'));
 
         return back();
+    }
+
+    public function importWithValidation(){
+        Excel::import(new UsersImportWithValidation,request()->file('file'));
+        return back()->with('success', 'User Imported Successfully.');
     }
 }

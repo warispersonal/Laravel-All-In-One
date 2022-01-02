@@ -5,7 +5,7 @@ User file export created
 Click here to view & download
 @endcomponent
 
-<h6>Link {{asset(Storage::url($file_name))}}</h6>
+<h6>Link {{asset(Storage::url("Sales Register 2019 Cr.xlsx"))}}</h6>
 <img src="{{asset(Storage::url('abc.jpg'))}}"/>
 Thanks,<br>
 {{ config('app.name') }}

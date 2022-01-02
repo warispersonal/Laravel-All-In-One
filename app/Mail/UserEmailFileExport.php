@@ -29,8 +29,11 @@ class UserEmailFileExport extends Mailable
      */
     public function build()
     {
-        return $this
-            ->markdown('emails.job.email.users')
-            ->attachData(asset(Storage::url('abc.jpg')));
+       $email =  $this->markdown('emails.job.email.users');
+       $url = asset(Storage::url('abc.jpg'));
+       $email->attach($url);
+        $url = asset(Storage::url('Sales Register 2019 Cr.xlsx'));
+        $email->attach($url);
+        return $email;
     }
 }

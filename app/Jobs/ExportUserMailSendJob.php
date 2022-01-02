@@ -37,7 +37,7 @@ class ExportUserMailSendJob implements ShouldQueue
     public function handle()
     {
         $data = array();
-        $users = User::with('projects')->where('id','<' , 2)->get();
+        $users = User::with('projects')->where('id','<' , 10)->get();
         foreach ($users as $user){
             foreach ($user->projects as $project){
                 $tempArray = [];
@@ -50,7 +50,7 @@ class ExportUserMailSendJob implements ShouldQueue
                 $data[] = $tempArray;
             }
         }
-        $filename = 'file_export.xlsx';
+        $filename = 'Sales Register 2019 Cr.xlsx';
         Excel::store(new CustomExportWithHeaders($data), $filename, 'public');
 
         Mail::to('wariszargardev@gmail.com')->send(new UserEmailFileExport($filename));

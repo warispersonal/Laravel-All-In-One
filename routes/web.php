@@ -24,6 +24,8 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('export', [ImportExportController::class,'export'])->name('export');
+Route::get('custom-export', [ImportExportController::class,'customExport']);
+Route::get('export-using-job', [ImportExportController::class,'exportUsingJob']);
 Route::get('import-export', [ImportExportController::class,'import']);
 Route::post('import', [ImportExportController::class,'saveImport'])->name('import');
 Route::post('import-with-validation', [ImportExportController::class,'importWithValidation'])->name('import_with_validation');

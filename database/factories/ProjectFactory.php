@@ -16,7 +16,7 @@ class ProjectFactory extends Factory
     {
         return [
             'body' => $this->faker->text(200),
-            'user_id' => rand(1,20000),
+            'user_id' => rand(1,10000),
         ];
     }
 

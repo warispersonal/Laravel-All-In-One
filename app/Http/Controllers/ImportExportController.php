@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\CustomExportWithHeaders;
 use App\Exports\UsersExport;
 use App\Imports\UsersImport;
 use App\Imports\UsersImportWithValidation;
@@ -22,6 +23,44 @@ class ImportExportController extends Controller
 //        $users = User::where('id','<',100)->get();
 
         return Excel::download(new UsersExport($users), 'users.xlsx');
+    }
+
+    public function customExport()
+    {
+        $data = array();
+        $users = User::with('projects')->get();
+        foreach ($users as $user){
+            foreach ($user->projects as $project){
+                $tempArray = [];
+                $tempArray['user_id'] = $user->id;
+                $tempArray['name'] = $user->name;
+                $tempArray['email'] = $user->email;
+                $tempArray['email'] = $user->email;
+                $tempArray['project_id'] = $project->id;
+                $tempArray['project_description'] = $project->body;
+                $data[] = $tempArray;
+            }
+        }
+        return Excel::download(new CustomExportWithHeaders($data), 'custom_export.xlsx');
+    }
+
+    public function exportUsingJob()
+    {
+        $data = array();
+        $users = User::with('projects')->get();
+        foreach ($users as $user){
+            foreach ($user->projects as $project){
+                $tempArray = [];
+                $tempArray['user_id'] = $user->id;
+                $tempArray['name'] = $user->name;
+                $tempArray['email'] = $user->email;
+                $tempArray['email'] = $user->email;
+                $tempArray['project_id'] = $project->id;
+                $tempArray['project_description'] = $project->body;
+                $data[] = $tempArray;
+            }
+        }
+        return Excel::download(new CustomExportWithHeaders($data), 'custom_export.xlsx');
     }
 
     public function saveImport()

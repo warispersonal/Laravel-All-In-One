@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\PDFController;
 use Illuminate\Support\Facades\Route;
 
@@ -23,3 +24,7 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('generate-pdf', [PDFController::class, 'generatePDF'])->name('generate-pdf');
+
+Route::get('/employee', [EmployeeController::class, 'showEmployees']);
+
+Route::get('/employee/pdf', [EmployeeController::class, 'createPDF']);

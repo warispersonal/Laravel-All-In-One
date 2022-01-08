@@ -6,22 +6,17 @@
 
     <title>Algolia</title>
     <link href="{{asset('css/app.css')}}" rel="stylesheet"/>
-
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 </head>
 <body>
 
-<div class="container mt-5">
+<div class="container">
     <div class="row">
         <form method="get" action="{{route('search')}}">
             <div class="col-12">
-                <div class="input-group mb-3">
-                    <input type="text"  name="q" value="{{old('q')}}"   class="form-control" placeholder="Search" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                    <div class="input-group-append">
-                        <button class="btn btn-outline-secondary" type="submit">Search</button>
-                    </div>
+                <div class="form-control">
+                    <input type="text" name="q" value="{{old('q')}}" class="form-group"/>
                 </div>
+                <button class="btn btn-lg btn-info" type="submit">Search</button>
             </div>
         </form>
         @foreach($results as $row)

@@ -8,11 +8,8 @@ use Illuminate\Http\Request;
 class AlgoliaController extends Controller
 {
     public function search(Request $request){
-        $results = [];
-        if($request->has('q')){
-            $request->flashOnly('q');
-            $results = Post::search($request->q)->get();
-        }
+        $request->flashOnly('q');
+        $results = Post::search($request->q)->paginate(10);
         return view('search',compact('results'));
     }
 }

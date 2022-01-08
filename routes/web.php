@@ -28,3 +28,7 @@ Auth::routes();
 Route::get('search',[\App\Http\Controllers\AlgoliaController::class,'search'])->name('search');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/searchjs', function () {
+    return view('searchjs');
+});

@@ -50,6 +50,12 @@ class RouteServiceProvider extends ServiceProvider
             Route::prefix('admin')
                 ->namespace($this->namespace)
                 ->group(base_path('routes/admin.php'));
+
+            // It can restrict all route with parameter name with int_id must be only integer number
+            // int_id as any parameter name
+            Route::pattern('id', '[0-9]+');
+            Route::pattern('int_id', '[0-9]+');
+
         });
     }
 

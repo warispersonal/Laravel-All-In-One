@@ -77,23 +77,52 @@ use Illuminate\Support\Facades\Route;
 //});
 
 
-Route::get('/user/{id}/profile', function ($id) {
-    //
-})->name('profile');
+//Route::get('/user/{id}/profile', function ($id) {
+//    //
+//})->name('profile');
+//
+//Route::get('/url', function () {
+//    //
+//     $only_url = route('profile',1);
+//     echo $only_url;
+//
+//    // In this way it can add automatically query parameter to route.
+//
+//    $url = route('profile', ['id' => 1, 'photos' => 'yes']);
+//    echo $url;
+//});
+//
+//Route::get('check-url-1',[ValidateController::class, 'check'])->name('checkurl1');
+//Route::get('check-url-2',[ValidateController::class, 'check'])->name('checkurl2');
+//Route::get('check-url-3',[ValidateController::class, 'check'])->name('checkurl3');
+//Route::get('check-url-4',[ValidateController::class, 'check'])->name('checkurl4');
+//Route::get('check-url-5',[ValidateController::class, 'check'])->name('checkurl5');
 
-Route::get('/url', function () {
-    //
-     $only_url = route('profile',1);
-     echo $only_url;
-
-    // In this way it can add automatically query parameter to route.
-
-    $url = route('profile', ['id' => 1, 'photos' => 'yes']);
-    echo $url;
+// Group routes
+Route::middleware(['first', 'second'])->group(function () {
+    Route::get('validate-middleware',[ValidateController::class, 'validateMiddleware'])->name('validate-middleware');
 });
 
-Route::get('check-url-1',[ValidateController::class, 'check'])->name('checkurl1');
-Route::get('check-url-2',[ValidateController::class, 'check'])->name('checkurl2');
-Route::get('check-url-3',[ValidateController::class, 'check'])->name('checkurl3');
-Route::get('check-url-4',[ValidateController::class, 'check'])->name('checkurl4');
-Route::get('check-url-5',[ValidateController::class, 'check'])->name('checkurl5');
+Route::prefix('categories')->group(function () {
+    Route::get('/', function () {
+        echo "Listing routes";
+    });
+
+    Route::get('/show', function () {
+        echo "Show route";
+    });
+});
+
+Route::name('admin.')->group(function () {
+    Route::get('/products', function () {
+        // Route assigned name "admin.products"...
+    })->name('products');
+});
+
+Route::name('aaaaaa')->group(function (){
+    Route::prefix("aaaaaa")->group(function (){
+        // Route list
+    });
+});
+
+

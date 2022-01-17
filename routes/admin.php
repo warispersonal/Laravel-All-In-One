@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ValidateController;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -99,30 +100,39 @@ use Illuminate\Support\Facades\Route;
 //Route::get('check-url-5',[ValidateController::class, 'check'])->name('checkurl5');
 
 // Group routes
-Route::middleware(['first', 'second'])->group(function () {
-    Route::get('validate-middleware',[ValidateController::class, 'validateMiddleware'])->name('validate-middleware');
+//Route::middleware(['first', 'second'])->group(function () {
+//    Route::get('validate-middleware',[ValidateController::class, 'validateMiddleware'])->name('validate-middleware');
+//});
+//
+//Route::prefix('categories')->group(function () {
+//    Route::get('/', function () {
+//        echo "Listing routes";
+//    });
+//
+//    Route::get('/show', function () {
+//        echo "Show route";
+//    });
+//});
+//
+//Route::name('admin.')->group(function () {
+//    Route::get('/products', function () {
+//        // Route assigned name "admin.products"...
+//    })->name('products');
+//});
+//
+//Route::name('aaaaaa')->group(function (){
+//    Route::prefix("aaaaaa")->group(function (){
+//        // Route list
+//    });
+//});
+
+
+// Get deleted data
+Route::get('/users/{user}', function (User $user) {
+    return $user->email;
+})->withTrashed();
+
+
+Route::fallback(function () {
+    echo  "No route match";
 });
-
-Route::prefix('categories')->group(function () {
-    Route::get('/', function () {
-        echo "Listing routes";
-    });
-
-    Route::get('/show', function () {
-        echo "Show route";
-    });
-});
-
-Route::name('admin.')->group(function () {
-    Route::get('/products', function () {
-        // Route assigned name "admin.products"...
-    })->name('products');
-});
-
-Route::name('aaaaaa')->group(function (){
-    Route::prefix("aaaaaa")->group(function (){
-        // Route list
-    });
-});
-
-

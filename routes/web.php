@@ -20,3 +20,5 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/request', [\App\Http\Controllers\RequestController::class, 'create']);
+Route::any('/request-add', [\App\Http\Controllers\RequestController::class, 'store'])->name('request');

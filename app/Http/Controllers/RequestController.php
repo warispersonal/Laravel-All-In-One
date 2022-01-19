@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class RequestController extends Controller
 {
@@ -95,6 +96,29 @@ class RequestController extends Controller
 //
 //        // only except this all data return
 //        $request->flashExcept('password');
+
+
+//        if($request->image){
+//            dd($request->image);
+//        }
+
+        $file = $request->image;
+
+//        echo " <br> " . $path = $file->path();
+//        echo " <br> " . $extension = $file->extension();
+//        echo " <br> " . $file->getRealPath();
+//        echo " <br> " . $file->getClientOriginalName();
+//        echo " <br> " . $file->getClientOriginalExtension();
+//        echo " <br> " . $file->getSize();
+//        echo " <br> " . $file->getMimeType();
+
+        // store file with unique name
+            $filename = $file->store('images');
+
+//        $path1 = $file->storeAs('images', 'filename.jpg'); // with custom file name
+//        echo  Storage::disk('local')->url($path); // storage/screenshots/1.jpg
+//        $path = Storage::disk('public')->path($path);
+
 
         return redirect()->back()->withInput();
 

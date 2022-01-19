@@ -6,7 +6,7 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-body">
-                        <form method="post" action="{{route('request', ['age'=>25])}}">
+                        <form method="post" action="{{route('request', ['age'=>25])}}" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group">
                                 <label>Name: </label>
@@ -32,6 +32,11 @@
                                 <label>DOB: </label>
                                 <input type="date" name="dob" value="{{old('dob')}}" class="form-control" />
                             </div>
+
+                            <div class="form-group mt-5">
+                                <input type="file" class="form-control" value="Select file" name="image" />
+                            </div>
+
                             <button type="submit" class="btn btn-info mt-3"> Submit </button>
                         </form>
                     </div>

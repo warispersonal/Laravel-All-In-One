@@ -6,6 +6,7 @@
         <div class="col-md-8">
             <div class="card">
 
+                <h1>Global variable: {{$any_key}}</h1>
                 <h1>Total users {{$counter}}</h1>
                 @php
                 echo "<pre>";

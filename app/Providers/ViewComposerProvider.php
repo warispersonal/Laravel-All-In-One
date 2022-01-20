@@ -25,6 +25,11 @@ class ViewComposerProvider extends ServiceProvider
      */
     public function boot()
     {
+
+        // this data with share method available all views
+        View::share('any_key', 'We define for global and use in all views');
+
+
         // for single view
         View::composer('user1', UserComposer::class);
 

@@ -34,3 +34,5 @@ Route::get('/user3', function () {
 Route::get('/user4', function () {
     return view('user4');
 });
+
+Route::get('/users',\App\Http\Controllers\ComponentController::class);

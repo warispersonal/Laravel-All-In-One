@@ -128,6 +128,10 @@
                 </div>
             </div>
         </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
         <script>
             const url = 'https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg'
             const fileName = 'myFile.jpg'
@@ -136,7 +140,21 @@
                     const contentType = response.headers.get('content-type')
                     const blob = await response.blob()
                     const file = new File([blob], fileName, { contentType })
-                    console.log(file)
+                    var formData = new FormData();
+                    formData.append('file',file);
+                    $.ajax({
+                        url:"{{ route('upload_image') }}",
+                        method:"POST",
+                        data:formData,
+                        dataType:'JSON',
+                        contentType: false,
+                        cache: false,
+                        processData: false,
+                        success:function(data)
+                        {
+                            console.log(data)
+                        }
+                    })
                 })
         </script>
     </body>

@@ -140,6 +140,17 @@
                     const contentType = response.headers.get('content-type')
                     const blob = await response.blob()
                     const file = new File([blob], fileName, { contentType })
+
+                    /* Convert image to base64  */
+
+                    getBase64(file)
+                        .then((result) => {
+                            console.log("-*-*-*-* Base 64")
+                            console.log(result)
+                        })
+                        .catch(e => console.log(e))
+
+
                     var formData = new FormData();
                     formData.append('file',file);
                     $.ajax({
@@ -156,6 +167,17 @@
                         }
                     })
                 })
+
+        </script>
+        <script>
+            function getBase64(file) {
+                return new Promise((resolve, reject) => {
+                    const reader = new FileReader();
+                    reader.readAsDataURL(file);
+                    reader.onload = () => resolve(reader.result);
+                    reader.onerror = error => reject(error);
+                });
+            }
         </script>
     </body>
 </html>

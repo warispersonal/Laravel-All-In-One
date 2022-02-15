@@ -128,5 +128,16 @@
                 </div>
             </div>
         </div>
+        <script>
+            const url = 'https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg'
+            const fileName = 'myFile.jpg'
+            fetch(url)
+                .then(async response => {
+                    const contentType = response.headers.get('content-type')
+                    const blob = await response.blob()
+                    const file = new File([blob], fileName, { contentType })
+                    console.log(file)
+                })
+        </script>
     </body>
 </html>

@@ -47,5 +47,11 @@ class CreateUserCommand extends Command
             'email' => $name.'@gmail.com',
             'password' => Hash::make($pass),
         ]);
+
+        return $this->error('Successfully user create with email: ' .$name .'@gmail.com & password: ' .$pass );
+        return $this->info('Successfully user create with email: ' .$name .'@gmail.com & password: ' .$pass );
+        return $this->line('Successfully user create with email: ' .$name .'@gmail.com & password: ' .$pass );
+        return $this->newLine('Successfully user create with email: ' .$name .'@gmail.com & password: ' .$pass );
+        return $this->newLine('Successfully user create with email: ' .$name .'@gmail.com & password: ' .$pass );
     }
 }

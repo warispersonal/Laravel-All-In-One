@@ -20,3 +20,12 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+use Illuminate\Support\Facades\Artisan;
+
+Route::get('create-user', function () {
+    Artisan::call('user:create', [
+        'name' => "Waris",
+        'email' => 'waris1234@gmail.com',
+        'password' => 'password'
+    ]);
+});

@@ -12,8 +12,9 @@
     <div id="showAll">
 
     </div>
-
     <h1 id="monitor">Call Back </h1>
+
+    <button type="button" id="toggleButton">Toggle</button>
 
     <script src="{{asset('js/jquery.min.js')}}"></script>
     <script src="{{asset('js/jquery.plugin.js')}}"></script>
@@ -30,8 +31,16 @@
             description: 'To go to jQuery', // Show text or description
             padZeroes: true, // If you want to show 00 Two digit value like previous
             format: 'yowdhms', // show only non zero values  if all small the no values show if time is zero
-            layout: '{sn} {sl}, {mn} {ml}, {hn} {hl}, and {dn} {dl}', // custom formatting 2 Seconds, 53 Minutes, 23 Hours, and 4 Days,
-            
+            // layout: '{sn} {sl}, {mn} {ml}, {hn} {hl}, and {dn} {dl}', // custom formatting 2 Seconds, 53 Minutes, 23 Hours, and 4 Days,
+            until: +300, //Until 300 seconds time
+            until: '+2d', //Until two days time
+            until: '+2d +4h', //Until two days and four hours time
+
+        });
+
+        // Start and stop timer
+        $('#toggleButton').click(function() {
+            $('#showAll').countdown('toggle');
         });
 
         function liftOff() {
@@ -42,6 +51,5 @@
             $('#monitor').text('Just ' + periods[5] + ' minutes and ' +
                 periods[6] + ' seconds to go');
         }
-
     </script>
 @endsection

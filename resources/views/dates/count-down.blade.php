@@ -18,7 +18,7 @@
     <script src="{{asset('js/jquery.countdown.js')}}"></script>
     <script>
         $('#showAll').countdown({
-            until: new Date(2022, 03, 25),
+            until: new Date("{{$user->created_at}}"),
             format: 'YOWDHMS'
         });
     </script>

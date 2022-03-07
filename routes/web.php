@@ -22,3 +22,4 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('count-down', [\App\Http\Controllers\DateController::class, 'countDown']);
 Route::get('count-down-separate', [\App\Http\Controllers\DateController::class, 'countDownWithDateTimeSeparate']);
+Route::get('date-formatting', [\App\Http\Controllers\DateController::class, 'dateFormattingUsingCarbon']);

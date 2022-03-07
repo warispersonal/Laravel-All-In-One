@@ -59,7 +59,7 @@ class CacheController extends Controller
          // You may clear the entire cache using the flush method:
         Cache::flush();
 
-        
+
 //        $users = Cache::rememberForever('users',function () {
 //            return User::all();
 //        });

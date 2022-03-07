@@ -21,11 +21,17 @@
     <script>
         $('#showAll').countdown({
             until: new Date("{{$user->created_at}}"),
-            format: 'YOWDHMS',
+            format: 'YOWDHMS', // Show all values every time even if these are zeros
             onExpiry: liftOff, // when time is expire then this functiona is call
             onTick: watchCountdown, // When 1 tick then call this function
             tickInterval: 5, // this can set about function time how much time passed then its function cal
-
+            expiryText: '<div class="over">It\'s all over</div>', // show test instead of showing empty zero its only work when time left and you dont have empty value
+            expiryUrl: 'https://jquery.com', // when time passed then goto this url
+            description: 'To go to jQuery', // Show text or description
+            padZeroes: true, // If you want to show 00 Two digit value like previous
+            format: 'yowdhms', // show only non zero values  if all small the no values show if time is zero
+            layout: '{sn} {sl}, {mn} {ml}, {hn} {hl}, and {dn} {dl}', // custom formatting 2 Seconds, 53 Minutes, 23 Hours, and 4 Days,
+            
         });
 
         function liftOff() {

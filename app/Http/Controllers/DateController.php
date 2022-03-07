@@ -11,4 +11,11 @@ class DateController extends Controller
         $user = User::first();
         return view("dates.count-down", compact('user'));
     }
+
+    public function countDownWithDateTimeSeparate()
+    {
+        $user = User::first();
+        $combinedDT = date('Y-m-d H:i:s', strtotime("$user->date $user->time"));
+        return view("dates.count-down-separate", compact('user', 'combinedDT'));
+    }
 }

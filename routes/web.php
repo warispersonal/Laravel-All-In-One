@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DateController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,7 +21,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('count-down', [\App\Http\Controllers\DateController::class, 'countDown']);
-Route::get('count-down-separate', [\App\Http\Controllers\DateController::class, 'countDownWithDateTimeSeparate']);
-Route::get('date-formatting', [\App\Http\Controllers\DateController::class, 'dateFormattingUsingCarbon']);
-Route::get('working-with-dates', [\App\Http\Controllers\DateController::class, 'workingWithDates']);
+Route::get('count-down', [DateController::class, 'countDown']);
+Route::get('count-down-separate', [DateController::class, 'countDownWithDateTimeSeparate']);
+Route::get('date-formatting', [DateController::class, 'dateFormattingUsingCarbon']);
+Route::get('working-with-dates', [DateController::class, 'workingWithDates']);

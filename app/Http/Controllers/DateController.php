@@ -50,6 +50,19 @@ class DateController extends Controller
     }
 
     public function workingWithDates(){
-        printAll("Today " .  getTodayDate() . " Yesterday date ". getYesterDayDate() . " Tomorrow date " . getTomorrowDate());
+        // printAll("Today " .  getTodayDate() . " Yesterday date ". getYesterDayDate() . " Tomorrow date " . getTomorrowDate());
+
+        // Creating Dates with More Fine-Grained Control
+        // Carbon::createFromDate($year, $month, $day, $tz);
+        // Carbon::createFromTime($hour, $minute, $second, $tz);
+        // Carbon::create($year, $month, $day, $hour, $minute, $second, $tz);
+
+        // Add days to date
+        // printAll(addDaysToDate(1,'15-12-2022'));
+
+        $date = "12-02-2022";
+        // printAll(convertToDate($date)); // output 2022-02-12
+        // printAll(convertToDateTime($date)); // output 2022-02-12 00:00:00
+        // printAll(convertToFormattedDateString($date)); // output Feb 12, 2022
     }
 }

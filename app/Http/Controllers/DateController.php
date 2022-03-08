@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Carbon\Carbon;
+use Carbon\CarbonPeriod;
 
 class DateController extends Controller
 {
@@ -74,5 +75,30 @@ class DateController extends Controller
 
         // printAll("Difference in years " . getDifferenceInYears($start_date , $end_date). " <br> Difference in days " . getDifferenceInDays($start_date , $end_date) . "<br> Difference in Hours " . getDifferenceInHours($start_date, $end_date) . " <br> Difference in minutes " . getDifferenceInMinutes($start_date, $end_date) . " <br> Difference in Seconds " . getDifferenceInSeconds($start_date , $end_date));
         // printAll(getDateFroHumans($start_date));
+
+        $date1 = "12-09-2022 08:50";
+        $date2 = "12-10-2022 08:50";
+        //printAll(checkIfTwoDatesAreEqual($date1,$date2) ? "Yes" :"No");
+
+        // if date is greater than today date then return true otherwise false
+        $date = "12-01-2022 08:50";
+        // printAll(isDateGreaterThanCurrentDate($date) ? "Yes" : "No");
+
+        // printAll(getDateOfTimeZone($date, 'America/Vancouver'));
+
+        // printAll(getLocaleDate($date, 'fr_FR'));
+        // printAll(getLocaleDate($date, 'en_US'));
+
+        // echo "<pre>";
+        // $dates = getAllDatesBetweenTwoDates("12-09-2022" , "12-10-2022");
+        // printAll("Total days " . count($dates));
+        // foreach ($dates as $date){
+        //      print_r($date);
+        // }
+        // die();
+
+
+        $interVal = getTodayInterval('06:00',"18:00" , 5);
+        printAll(count($interVal));
     }
 }

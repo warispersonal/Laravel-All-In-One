@@ -1,6 +1,7 @@
 <?php
 
 use Carbon\Carbon;
+use Carbon\CarbonPeriod;
 
 function printAll($data){
     echo "<pre>";
@@ -153,4 +154,65 @@ function getDifferenceInSeconds($start_date, $end_date){
 function getDateFroHumans($date){
     $date = Carbon::parse($date);
     return $date->diffForHumans();
+}
+
+function checkIfTwoDatesAreEqual($date1, $date2){
+    $date1 = Carbon::parse($date1);
+    $date2 = Carbon::parse($date2);
+    if($date1->eq($date2)){
+        return true;
+    }
+    return false;
+}
+
+function isDateGreaterThanCurrentDate($end_data){
+    $current_date = Carbon::now();
+    $end_data = Carbon::parse($end_data);
+    if($end_data->gt($current_date)){
+        return true;
+    }
+    return false;
+}
+
+function isDateGreaterThanOrEqualCurrentDate($end_data){
+    $current_date = Carbon::now();
+    $end_data = Carbon::parse($end_data);
+    if($end_data->gte($current_date)){
+        return true;
+    }
+    return false;
+}
+
+function isDateLesserThanCurrentDate($end_data){
+    $current_date = Carbon::now();
+    $end_data = Carbon::parse($end_data);
+    if($end_data->lt($current_date)){
+        return true;
+    }
+    return false;
+}
+
+function isDateLesserThanOrEqualCurrentDate($end_data){
+    $current_date = Carbon::now();
+    $end_data = Carbon::parse($end_data);
+    if($end_data->lte($current_date)){
+        return true;
+    }
+    return false;
+}
+
+function getDateOfTimeZone($date, $timezone){
+    return Carbon::parse($date, $timezone);
+}
+
+function getLocaleDate($date, $locale){
+    return Carbon::parse($date)->locale($locale)->diffForHumans();
+}
+
+function getAllDatesBetweenTwoDates($startDate , $endDate){
+    return CarbonPeriod::create($startDate, $endDate);
+}
+
+function getTodayInterval($from , $end , $interval){
+    return CarbonPeriod::since($from)->hours($interval)->until($end)->toArray();
 }

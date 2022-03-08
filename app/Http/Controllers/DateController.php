@@ -48,4 +48,8 @@ class DateController extends Controller
             dd("Current date Lesser");
         }
     }
+
+    public function workingWithDates(){
+        printAll("Today " .  getTodayDate() . " Yesterday date ". getYesterDayDate() . " Tomorrow date " . getTomorrowDate());
+    }
 }

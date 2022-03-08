@@ -119,3 +119,38 @@ function setDate($date){
 
     return $dt;
 }
+
+function getDifferenceInYears($start_date, $end_date){
+    $start_date = Carbon::parse($start_date);
+    $end_date = Carbon::parse($end_date);
+    return $end_date->diffInYears($start_date);
+}
+
+function getDifferenceInDays($start_date, $end_date){
+    $start_date = Carbon::parse($start_date);
+    $end_date = Carbon::parse($end_date);
+    return $end_date->diffInDays($start_date);
+}
+
+function getDifferenceInHours($start_date, $end_date){
+    $start_date = Carbon::parse($start_date);
+    $end_date = Carbon::parse($end_date);
+    return $end_date->diffInHours($start_date);
+}
+
+function getDifferenceInMinutes($start_date, $end_date){
+    $start_date = Carbon::parse($start_date);
+    $end_date = Carbon::parse($end_date);
+    return $end_date->diffInMinutes($start_date);
+}
+
+function getDifferenceInSeconds($start_date, $end_date){
+    $start_date = Carbon::parse($start_date);
+    $end_date = Carbon::parse($end_date);
+    return $end_date->diffInSeconds($start_date);
+}
+
+function getDateFroHumans($date){
+    $date = Carbon::parse($date);
+    return $date->diffForHumans();
+}

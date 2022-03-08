@@ -68,5 +68,11 @@ class DateController extends Controller
         $date = "12-02-2022 03:04:12";
         // dateGetters($date);
         // printAll(setDate($date));
+
+        $start_date = "12-08-2022 08:50";
+        $end_date = "12-10-2025 12:50";
+
+        // printAll("Difference in years " . getDifferenceInYears($start_date , $end_date). " <br> Difference in days " . getDifferenceInDays($start_date , $end_date) . "<br> Difference in Hours " . getDifferenceInHours($start_date, $end_date) . " <br> Difference in minutes " . getDifferenceInMinutes($start_date, $end_date) . " <br> Difference in Seconds " . getDifferenceInSeconds($start_date , $end_date));
+        // printAll(getDateFroHumans($start_date));
     }
 }

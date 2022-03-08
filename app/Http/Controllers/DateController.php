@@ -64,5 +64,9 @@ class DateController extends Controller
         // printAll(convertToDate($date)); // output 2022-02-12
         // printAll(convertToDateTime($date)); // output 2022-02-12 00:00:00
         // printAll(convertToFormattedDateString($date)); // output Feb 12, 2022
+
+        $date = "12-02-2022 03:04:12";
+        // dateGetters($date);
+        // printAll(setDate($date));
     }
 }

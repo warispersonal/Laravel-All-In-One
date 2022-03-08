@@ -91,3 +91,31 @@ function subFromYearsMonthsWeeksHoursMinutesSeconds(){
     $date->subSecond(); // Sub only 1 seconds
     $date->subSeconds(5); // Sub only 5 seconds
 }
+
+function dateGetters($date){
+    $dt = Carbon::parse($date);
+    echo "year " . $dt->year . "<br>";
+    echo "month " . $dt->month . "<br>";
+    echo "day " . $dt->day . "<br>";
+    echo "hour " . $dt->hour . "<br>";
+    echo "second " . $dt->second . "<br>";
+    echo "dayOfWeek " . $dt->dayOfWeek . "<br>";
+    echo "dayOfYear " . $dt->dayOfYear . "<br>";
+    echo "weekOfMonth " . $dt->weekOfMonth . "<br>";
+    echo "daysInMonth " . $dt->daysInMonth . "<br>";
+
+    die();
+}
+
+function setDate($date){
+    $dt = Carbon::parse($date);
+
+    $dt->year   = 2015;
+    $dt->month  = 04;
+    $dt->day    = 21;
+    $dt->hour   = 22;
+    $dt->minute = 32;
+    $dt->second = 5;
+
+    return $dt;
+}

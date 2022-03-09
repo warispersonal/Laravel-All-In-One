@@ -98,7 +98,13 @@ class DateController extends Controller
         // die();
 
 
-        $interVal = getTodayInterval('06:00',"18:00" , 5);
-        printAll(count($interVal));
+        // $interVal = getTodayInterval('06:00',"08:00" , 1);
+        // printAll(count($interVal));
+
+        // printAll(getSlotsBetweenTwoDates('12-09-2022 06:00', '12-09-2022 13:00' , 30));
+        // printAll(getSlotsBetweenTwoDates('12-09-2022 06:00', '13-09-2022 06:00' , 30));
+        // printAll(getSlotsBetweenTwoDates('12-09-2022 06:00', '13-09-2022 06:00' , 1, "hours"));
+        // printAll(getSingleDaySlots('12-09-2022',"06:30" ,"13:30" , 30));
+
     }
 }

@@ -216,3 +216,25 @@ function getAllDatesBetweenTwoDates($startDate , $endDate){
 function getTodayInterval($from , $end , $interval){
     return CarbonPeriod::since($from)->hours($interval)->until($end)->toArray();
 }
+
+function getSlotsBetweenTwoDates($fromDate, $toDate, $interval, $format='minutes'){
+    $fromDate = Carbon::parse($fromDate);
+    $toDate = Carbon::parse($toDate);
+    $period = new CarbonPeriod($fromDate, $interval . ' ' . $format , $toDate); // $interval in  is '15 minutes'
+    $slots = [];
+    foreach ($period as $item) {
+        array_push($slots, $item->format("h:i A"));
+    }
+    return $slots;
+}
+
+function getSingleDaySlots($data, $from, $to ,$interval, $format='minutes'){
+    $fromDate = Carbon::parse($data . ' ' . $from);
+    $toDate = Carbon::parse($data . ' ' . $to);
+    $period = new CarbonPeriod($fromDate, $interval . ' ' . $format , $toDate); // $interval in  is '15 minutes'
+    $slots = [];
+    foreach ($period as $item) {
+        array_push($slots, $item->format("h:i A"));
+    }
+    return $slots;
+}

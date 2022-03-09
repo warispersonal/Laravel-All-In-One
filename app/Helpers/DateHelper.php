@@ -238,3 +238,9 @@ function getSingleDaySlots($data, $from, $to ,$interval, $format='minutes'){
     }
     return $slots;
 }
+
+function newDateFormat($dateTime, $format='m-d-Y H:i:s')
+{
+    return Carbon::parse($dateTime)->format($format);
+}
+

@@ -106,5 +106,6 @@ class DateController extends Controller
         // printAll(getSlotsBetweenTwoDates('12-09-2022 06:00', '13-09-2022 06:00' , 1, "hours"));
         // printAll(getSingleDaySlots('12-09-2022',"06:30" ,"13:30" , 30));
 
+        // printAll(newDateFormat('12/09/2022 06:30:25'));
     }
 }

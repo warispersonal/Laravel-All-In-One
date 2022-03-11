@@ -5,3 +5,7 @@ function printAll($data){
     print_r($data);
     die();
 }
+
+function printNewLine($message, $data){
+    echo $message . ": " .  $data  . "<br>";
+}

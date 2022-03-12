@@ -6,6 +6,7 @@ function printAll($data){
     die();
 }
 
-function printNewLine($message, $data){
-    echo $message . ": " .  $data  . "<br>";
+function printNewLine($message, $data=''){
+    echo  "<br>" . $message . ""  . "<br>";
+    print_r($data);
 }

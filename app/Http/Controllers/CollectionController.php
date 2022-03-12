@@ -37,5 +37,44 @@ class CollectionController extends Controller
         $collectionItems = collect([8, 5, 3, 4]);
         printNewLine("Check all value passes the condition ", (int)everyMethodForCollection($collectionItems, 2)); // all value must be greater than 2 then return true otherwise false
         printNewLine("Check all value passes the condition ", (int)everyMethodForCollection($collectionItems, 8)); // all value must be greater than 8 then return true otherwise false
+
+
+        printNewLine("Get all value greater than that value ", '');
+//        printAll( filterMethodForCollection($collectionItems, 2));
+
+        getFirstElementFromCollection($collectionItems);
+
+        $collection = collect([
+            ['name' => 'Regena', 'age' => null],
+            ['name' => 'Linda', 'age' => 14],
+            ['name' => 'Diego', 'age' => 23],
+            ['name' => 'Linda', 'age' => 84],
+        ]);
+        getFirstElementFromAssociateArray($collection,'name','Linda');
+
+        $groupByCollection = collect([
+            ['account_id' => 'account-x10', 'product' => 'Chair'],
+            ['account_id' => 'account-x10', 'product' => 'Bookcase'],
+            ['account_id' => 'account-x11', 'product' => 'Desk'],
+        ]);
+
+        $collectionGroupBy = groupByCollection($groupByCollection,'account_id');
+        foreach ($collectionGroupBy as $key => $collectionItem){
+            printNewLine("Key " . ' ' . $key);
+        }
+
+
+        printNewLine("Collection Map Method",null);
+        mapMethodForCollection($students);
+
+        getMaximumFromCollection();
+
+        getMinimumFromCollection();
+
+        sortByCollection();
+
+        sumOfCollection();
+
+        getUnique();
     }
 }

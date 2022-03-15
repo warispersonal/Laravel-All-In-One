@@ -25,4 +25,8 @@ class HomeController extends Controller
     {
         return view('home');
     }
+
+    public function show(){
+        echo "This is just for test so we can add multiple listener";
+    }
 }

@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class FileStorage extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'filename', 'url'
+    ];
 }

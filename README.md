@@ -22,3 +22,6 @@
        npm config set registry http://registry.npmjs.org/
 
 
+# File Storage
+composer require league/flysystem-aws-s3-v3:*
+php artisan storage:link
